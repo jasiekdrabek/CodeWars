@@ -57,7 +57,6 @@ function hand(holeCards, communityCards) {
     let allCardsDict = { '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '♥': [], '♦': [], '♠': [], '♣': [] };
     let allCards = holeCards.concat(communityCards);
     let allCardsList = [];
-    console.log(allCards);
     for (let i = 0; i < allCards.length; i++) {
         let color = allCards[i].slice(-1);
         let value = allCards[i].slice(0, -1);
@@ -199,11 +198,9 @@ function hand(holeCards, communityCards) {
                     res['ranks'].push(key);
 
                     for (var i = 0; i < allCardsList1.length; i++) {
-                        console.log(allCardsList1[i] + " " + key)
                         if (allCardsList1[i].toString() == key) {
 
                             allCardsList1.splice(i, 1);
-                            console.log(allCardsList1 + " " + k + " " + key);
                         }
                     }
                     for (var i = 0; i < allCardsList1.length; i++) {
@@ -212,7 +209,6 @@ function hand(holeCards, communityCards) {
                             allCardsList1.splice(i, 1);
                         }
                     }
-                    console.log(allCardsList1 + " " + k + " " + key);
                     res['ranks'].push(allCardsList1[0].toString());
                     res['ranks'][0] = changeNumberToValue(res['ranks'][0]);
                     res['ranks'][1] = changeNumberToValue(res['ranks'][1]);
