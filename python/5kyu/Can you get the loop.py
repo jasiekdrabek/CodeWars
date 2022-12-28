@@ -13,12 +13,13 @@
 
 # Don't miss dmitry's article in the discussion after you pass the Kata !! 
 
-def loop_size(node):
-    length = 0 
-    values = [node]
-    curr = node.next
-    while curr not in values:
-        values.append(curr)
-        curr = curr.next
-        
-    return (len(values) - values.index(curr))   
+def loop_size(node): 
+    visited = []
+    while True:
+        if hasattr(node, 'visited'):
+            break
+        else:
+            visited.append(node)
+            node.visited = True
+            node = node.next
+    return len(visited) - visited.index(node)  
